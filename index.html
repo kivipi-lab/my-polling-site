@@ -269,7 +269,14 @@
         return `<div class="poll-card"><h4>${p.title}</h4>
           <p>Created: ${new Date(p.createdAt).toLocaleString()}</p>
           <p>Total Votes: ${pv.length}</p>
-          ${vc.map(o=>`<div><strong>${o.text}:</strong> ${o.count} votes</div>`).join('')}
+          ${vc.map(o=>`
+  <div style="margin:10px 0; padding:10px; background:#f8f9fa; border-radius:8px;">
+    <strong>${o.text}:</strong> ${o.count} votes
+    ${pv.filter(v=>v.optionId===o.id).length > 0
+      ? `<br><small>Voters: ${pv.filter(v=>v.optionId===o.id).map(v=>v.voterName).join(', ')}</small>`
+      : ''}
+  </div>
+`).join('')}
           <button onclick="deletePoll('${p.id}')" class="btn btn-danger">Delete Poll</button>
         </div>`; }).join('');
     }
@@ -288,3 +295,4 @@
   </script>
 </body>
 </html>
+
