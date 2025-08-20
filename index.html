@@ -32,6 +32,7 @@
       flex: 1; padding: 20px; text-align: center; border: none;
       cursor: pointer; font-size: 1.1rem; font-weight: 600;
       color: #6c757d; background: none; transition: all .3s;
+      position: relative;
     }
     .nav-tab.active { color: #4facfe; background: white; }
     .nav-tab.active::after {
@@ -232,10 +233,12 @@
 
     function adminLogin(){
       const pw=document.getElementById('admin-password-input').value;
-      if(pw==='admin123'){ isAdmin=true;
+      if(pw==='admin123'){ 
+        isAdmin=true;
         document.getElementById('admin-login').style.display='none';
         document.getElementById('admin-panel').style.display='block';
         document.getElementById('create-tab-button').style.display='block';
+        document.getElementById('create-tab').style.display='block'; // ✅ show content
         updateAdminView();
       } else alert('Incorrect password.');
     }
@@ -245,6 +248,7 @@
       document.getElementById('admin-login').style.display='block';
       document.getElementById('admin-panel').style.display='none';
       document.getElementById('create-tab-button').style.display='none';
+      document.getElementById('create-tab').style.display='none'; // ✅ hide content
       document.getElementById('create-tab').classList.remove('active');
       switchToTab('vote');
     }
