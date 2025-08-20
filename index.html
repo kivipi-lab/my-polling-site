@@ -65,10 +65,6 @@
     .stat-card { background: linear-gradient(135deg,#667eea 0%,#764ba2 100%); color: white; padding: 20px; border-radius: 15px; text-align: center; }
     .stat-value { font-size: 2rem; font-weight: 700; }
     .admin-password { position: fixed; top: 20px; right: 20px; background: rgba(0,0,0,0.8); color: white; padding: 10px 15px; border-radius: 20px; }
-  </style>
-</head>
-<body>
-  <div class="admin-password" id="adminPassword" style="display:none;">Admin Password: <strong>admin123</strong></div>
 
   <div class="container">
     <div class="header">
@@ -238,7 +234,7 @@
         document.getElementById('admin-login').style.display='none';
         document.getElementById('admin-panel').style.display='block';
         document.getElementById('create-tab-button').style.display='block';
-        document.getElementById('create-tab').style.display='block'; // ✅ show content
+        document.getElementById('create-tab').style.display='block'; 
         updateAdminView();
       } else alert('Incorrect password.');
     }
@@ -248,7 +244,7 @@
       document.getElementById('admin-login').style.display='block';
       document.getElementById('admin-panel').style.display='none';
       document.getElementById('create-tab-button').style.display='none';
-      document.getElementById('create-tab').style.display='none'; // ✅ hide content
+      document.getElementById('create-tab').style.display='none'; 
       document.getElementById('create-tab').classList.remove('active');
       switchToTab('vote');
     }
@@ -288,3 +284,4 @@
   </script>
 </body>
 </html>
+
